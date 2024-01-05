@@ -30,9 +30,14 @@ class DbSettings(BaseSettings):
         )
 
 
+class Settings(BaseSettings):
+    DATABASE: DbSettings = DbSettings()
+    API_V1_PREFIX: str = "/api/v1"
+
+
 @lru_cache
-def get_settings() -> DbSettings:
-    return DbSettings()
+def get_settings() -> Settings:
+    return Settings()
 
 
 settings = get_settings()
