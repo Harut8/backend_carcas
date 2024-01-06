@@ -1,15 +1,16 @@
 import datetime
+
 from sqlalchemy import func
-from sqlalchemy.orm import Mapped
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
-from sqlalchemy.orm import DeclarativeBase, mapped_column, declared_attr
+from sqlalchemy.orm import DeclarativeBase, Mapped, declared_attr, mapped_column
+
 from app.settings import settings
 
 
 class DbHelper:
     @staticmethod
     async def create_session_object():
-        engine = create_async_engine(settings.DATABASE.POSTGRES_DSN.unicode_string())
+        engine = create_async_engine(settings.DATABASE.POSTGRES_DSN.unicode_string(), echo=True)
         async_session = async_sessionmaker(
             engine,
             expire_on_commit=False,

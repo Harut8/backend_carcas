@@ -6,6 +6,7 @@ exclude=
     .git,
     __pycache__,
     .cache,
+    alembic/*
 
 select=
     # unused imports
