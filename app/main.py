@@ -1,8 +1,8 @@
-from app.helpers.db import DbHelper
-from app.routers.auth.auth import auth_router
-from fastapi import FastAPI, Depends
+from fastapi import Depends, FastAPI
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from app.helpers.db import DbHelper
+from app.routers.auth.auth import auth_router
 from app.settings import settings
 
 app = FastAPI()
