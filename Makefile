@@ -10,3 +10,9 @@ run:
 
 shell:
 	${RUN} /bin/bash
+
+migrate:
+	${RUN} alembic upgrade head
+
+revision:
+	${RUN} alembic revision --autogenerate
