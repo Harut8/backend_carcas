@@ -3,6 +3,7 @@ repos:
     rev: 23.1.0
     hooks:
       - id: black
+        name: black
         args: # arguments to configure black
           - --line-length=99
           - --target-version=py311
@@ -29,7 +30,8 @@ repos:
     hooks:
       - id: isort
         name: isort (python)
-        exclude: (venv/)
+        exclude: (venv/ | alembic/)
+        args: ["--profile", "black", "--filter-files"]
 
   - repo: https://github.com/pycqa/flake8
     rev: "5.0.4"
@@ -41,3 +43,4 @@ repos:
         types: [python]
         require_serial: true
         args: ["--config=.flake8"]
+        exclude: (venv/|alembic/)

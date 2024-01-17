@@ -6,7 +6,6 @@ from sqlalchemy.engine import Connection
 from sqlalchemy.ext.asyncio import async_engine_from_config
 
 from alembic import context
-
 from app.settings import settings
 
 # this is the Alembic Config object, which provides
@@ -21,6 +20,7 @@ if config.config_file_name is not None:
 # add your model's MetaData object here
 # for 'autogenerate' support
 from app.helpers.db import BaseModel
+from app.routers.auth.models import User
 
 target_metadata = BaseModel.metadata
 
